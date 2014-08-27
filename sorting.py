@@ -42,9 +42,8 @@ def best_match():
 
 def gen_char():
     #get me a random char from a-z including a space 
-    char_list = 'abcdefghijklmnopqrstuvwxyz '
+    char_list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !@#$%^&*()_+|}{":?><-=][\;\'\/.,"'
     return_char =  char_list[random.randrange(len(char_list))]
-    print return_char
     return return_char
 
     
@@ -55,17 +54,12 @@ def index_char(randchar, matching, looped):
     [matching.setdefault(i, randchar) for i in range(len(sentence)) if sentence[i] == randchar]
     if randchar in matching.values():
         looped +=1
-        print "Got here,", looped
-                
-#    print matching
     return looped
 
     
 def iterable():
     #generate a char
-    looped = 0
-    returned = 0
-    tries = 0
+    looped, returned, tries = 0, 0, 0
     while returned < len(sentence):
         if returned != 0:
             returned = index_char(gen_char(), matching, returned)
@@ -73,6 +67,8 @@ def iterable():
             returned = index_char(gen_char(), matching, looped)
         tries += 1
     print "It took %s tries to guess the phrase entered" % tries
+    print sentence
+    print matching
 
 if __name__ == '__main__':
     sentence = raw_input("Enter a short sentence, no special chars: ")
