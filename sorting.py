@@ -39,9 +39,10 @@ def best_match():
             print 'We got to', mil, 'Milion'
 
 #a bit more complex implementation would be to generate a random char from a-z and match to every char in the word
+"""done, but there's a bug that doesn't update the dict sometimes """
 
 def gen_char():
-    #get me a random char from a-z including a space 
+    """get me a random char from a-z including a space """
     char_list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !@#$%^&*()_+|}{":?><-=][\;\'\/.,"'
     return_char =  char_list[random.randrange(len(char_list))]
     return return_char
@@ -58,7 +59,7 @@ def index_char(randchar, matching, looped):
 
     
 def iterable():
-    #generate a char
+    """generate a char"""
     looped, returned, tries = 0, 0, 0
     while returned < len(sentence):
         if returned != 0:
@@ -71,6 +72,6 @@ def iterable():
     print matching
 
 if __name__ == '__main__':
-    sentence = raw_input("Enter a short sentence, no special chars: ")
-    #best_match()
+    sentence = raw_input("Enter a short sentence: ")
+    best_match()
     iterable() 
