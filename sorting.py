@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
 import random
+matching = {}
+matched = False
+
 
 def generate_string():
     alp = 'abcdefghijklmnopqrstuvwxyz '
@@ -35,6 +38,43 @@ def best_match():
             mil +=1
             print 'We got to', mil, 'Milion'
 
+#a bit more complex implementation would be to generate a random char from a-z and match to every char in the word
+
+def gen_char():
+    #get me a random char from a-z including a space 
+    char_list = 'abcdefghijklmnopqrstuvwxyz '
+    return_char =  char_list[random.randrange(len(char_list))]
+    print return_char
+    return return_char
+
+    
+def index_char(randchar, matching, looped):
+    """check first if we have an array match already and extract
+    the position of the char in the given sentence 
+    """
+    [matching.setdefault(i, randchar) for i in range(len(sentence)) if sentence[i] == randchar]
+    if randchar in matching.values():
+        looped +=1
+        print "Got here,", looped
+                
+#    print matching
+    return looped
+
+    
+def iterable():
+    #generate a char
+    looped = 0
+    returned = 0
+    tries = 0
+    while returned < len(sentence):
+        if returned != 0:
+            returned = index_char(gen_char(), matching, returned)
+        else:
+            returned = index_char(gen_char(), matching, looped)
+        tries += 1
+    print "It took %s tries to guess the phrase entered" % tries
+
 if __name__ == '__main__':
     sentence = raw_input("Enter a short sentence, no special chars: ")
-    best_match()
+    #best_match()
+    iterable() 
