@@ -68,4 +68,19 @@ def gcd(m,n): #great common denominator
         n = oldm%oldn
     return n
 
-print gcd(10,20)
+#print gcd(10,20)
+
+
+
+#Redhat interview question, 
+#find the biggest sufix of 2 words, and return it
+
+def get_sufix(x, y):
+    suffix = []
+    for xchar in xrange(len(x)):
+        for ychar in xrange(len(y)):
+            if x[xchar] == y[ychar]:
+                suffix.append(y[ychar])
+    return suffix
+
+print get_sufix('parlament', 'antrenament')
