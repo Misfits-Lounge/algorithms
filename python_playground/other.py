@@ -38,6 +38,7 @@ def draw():
      # Put the image of the text on the screen at 250x250
     screen.blit(text, [250, 250])
 
+
 def main():
     '''The basic logic and order for each frame of the game:
     While running:
@@ -58,7 +59,7 @@ def main():
                 running = False
         screen.fill(WHITE)
         #draw whatever i want
-        draw()
+        draw2()
         #update the window with what we've drawn through
         #the iteration
         pygame.display.flip()
