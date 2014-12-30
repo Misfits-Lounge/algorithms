@@ -53,3 +53,23 @@ concatenate O(k)
 sort O(n log n)
 multiply O(nk)
 """
+
+#loop from 1 to 100 and show which of the numbers are divisable by 3 and 5
+
+def divide_by_3_or_5():
+
+    i = 1
+    while i <= 100:
+        if i % 3 == 0 and i % 5 == 0:
+            print 'The number {} is divisible by 3 and 5'.format(i)
+        else:
+            if i % 3 == 0:
+                print 'The number {} is only divisible by 3'.format(i)
+            elif i % 5 == 0:
+                print 'The number {} is only divisible by 5'.format(i)
+            else:
+                print 'The number {} is not divisible by 3 or 5 '.format(i)
+        i += 1
+
+        
+divide_by_3_or_5()
