@@ -1,5 +1,6 @@
 package decorators
 
+
 import (
 	"time"
 	"log"
@@ -17,14 +18,12 @@ type Client interface{
 // ClientFunc is a function type that implements the Client interface.
 type ClientFunc func(*http.Request) (*http.Response, error)
 
-func(f ClientFunc) Do(r *http.Request) (*http.Response, errpr) {
+func (f ClientFunc) Do(r *http.Request) (*http.Response, errpr) {
 	return f(r)
 }
 
-
 // Decorator wraps a Client with extra behaviour.
 type Decorator func(Client) Client
-
 
 // Logging returns a Decorator that logs a Client's requests.
 func Logging(l *log.Logger) Decorator {
@@ -134,7 +133,6 @@ var cli = Decorate(http.DefaultClient,
 	),
 	FaultTolerance(5, time.Second),
 )
-
 
 // dummy functions to make the code passable
 func NewCounter(test string) {}
