@@ -9,6 +9,9 @@ import (
 	"os"
 )
 
+// This snippet is a part of a talk by Tomas Senart gophercon 2015 about using
+// interfaces and decorators https://www.youtube.com/watch?v=xyDkyFjzFVc
+
 
 // Client sends a http.Request and returns a http.Response or errors in case of failure.
 type Client interface{
